@@ -1,0 +1,64 @@
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+html, body, #root, .App {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-size: 1.6rem;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Kumbh Sans', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  background: none;
+  font-family: 'Kumbh Sans', sans-serif;
+  &:focus {
+    outline-offset: .2rem;
+    outline: var(--outline);
+  }
+}
+
+input {
+  padding: 0;
+  font-family: 'Kumbh Sans', sans-serif;
+  &:disabled {
+    cursor: wait;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+.sr-only {
+  border: 0;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(0px 0px 99.9% 99.9%);
+}

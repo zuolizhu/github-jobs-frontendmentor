@@ -1,0 +1,27 @@
+:root {
+  // Colors
+  --color-white: #ffffff;
+  --color-violet-51: #5964E0;
+  --color-violet-77: #939BF4;
+  --color-charcoal-10: #121721;
+  --color-charcoal-14: #19202D;
+  --color-gray-51: #6E8098;
+  --color-gray-69: #9DAEC2;
+  --color-gray-96: #F4F6F8;
+  
+  // Font Weights
+  --weight-regular: 400;
+  --weight-bold: 700;
+  // Design Elements
+  --outline: 2px dotted var(--color-violet-51);
+  --transition: 300ms ease-in-out;
+}
+
+.light {
+
+}
+
+.dark {
+
+}
+
