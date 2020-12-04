@@ -1,24 +1,35 @@
-import useStore from '../store'
+import { useQuery } from 'react-query'
 import { useParams, useHistory } from 'react-router-dom'
 
+const fetchJob = async (key, id) => {
+  const res = await fetch(`https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions/${id}.json`)
+  return res.json()
+}
+
+const getDomain = (url) => (new URL(url)).hostname
+
 export default function Job() {
-  const history = useHistory()
   const { id } = useParams()
-  const jobs = useStore((state) => state.jobs)
+  const history = useHistory()
   const handleBackClick = () => history.push('/')
 
-  const getDomain = (url) => (new URL(url)).hostname
+  const { 
+    data, status
+  } = useQuery(['job', id], fetchJob)
+
+  if (status === 'loading') return <div>Loading data</div>
+  if (status === 'error') return <div>Error fetching data</div>
 
   return (
     <main className="main main--job-detail">
       <div className="container">
         <section className="company">
           <div className="company__logo">
-            <img src={jobs[id].company_logo} alt="company logo"/>
+            <img src={data.company_logo} alt="company logo"/>
           </div>
-          <h1>{jobs[id].company}</h1>
-          <p>{getDomain(jobs[id].company_url)}</p>
-          <a href={jobs[id].company_url} rel="noreferrer" target="_blank">Company Site</a>
+          <h1>{data.company}</h1>
+          {/* <p>{getDomain(data.company_url)}</p> */}
+          <a href={data.company_url} rel="noreferrer" target="_blank">Company Site</a>
         </section>
         <button
           type="button"

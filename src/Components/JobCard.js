@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom'
 
-export default function JobCard({ jobDetail, id }) {
+export default function JobCard({ jobDetail }) {
   
   return (
     <div>
-      <Link to={`/job/${id}`}>{jobDetail.company}</Link>
+      <Link to={`/job/${jobDetail.id}`}>{jobDetail.company}</Link>
     </div>
   )
 }

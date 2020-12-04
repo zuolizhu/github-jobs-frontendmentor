@@ -1,5 +1,4 @@
 import JobCard from './JobCard'
-import useStore from '../store'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useQuery } from 'react-query'
@@ -7,12 +6,6 @@ import { useQuery } from 'react-query'
 const fetchJobs = async (key, page) => {
   const res = await fetch(`https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?page=${page}`)
   const jobs = await res.json()
-  
-  useStore.setState((state) => ({
-    ...state,
-    jobs
-  }))
-
   return jobs
 }
 
@@ -27,8 +20,6 @@ export default function JobsList() {
     visible: { opacity: 1 },
     hidden: { opacity: 0 },
   }
-
-
 
 
   const handleLoadMoreClick = () => setPage(old => old + 1)
