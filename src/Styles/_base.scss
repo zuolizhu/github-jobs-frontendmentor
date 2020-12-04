@@ -19,9 +19,17 @@
 
 .light {
   --bg-app: var(--color-gray-97);
+  --bg-component: var(--color-white);
 }
 
 .dark {
   --bg-app: var(--color-charcoal-10);
+  --bg-component: var(--color-charcoal-14)
 }
 
+@media (prefers-color-scheme: dark) {
+  .dark {
+    --bg-app: var(--color-charcoal-10);
+    --bg-component: var(--color-charcoal-14)
+  }
+}

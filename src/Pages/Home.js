@@ -1,11 +1,12 @@
-import { Link } from 'react-router-dom'
+import JobsList from '../Components/JobsList'
 
 export default function Home() {
   
   return (
-    <main>
-      <h1>home</h1>
-      <Link to="/job/1">job/1</Link>
+    <main className="main main--home">
+      <div className="container">
+        <JobsList />
+      </div>
     </main>
     
   )
