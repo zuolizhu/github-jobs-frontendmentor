@@ -1,0 +1,29 @@
+.header {
+  height: 13.6rem;
+  padding-top: 3.2rem;
+  padding-left: 2.4rem;
+  padding-right: 2.4rem;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url(../../Assets/mobile/bg-pattern-header.svg);
+  @media (min-width: 768px) {
+    height: 16rem;
+    padding-top: 4.2rem;
+    background-image: url(../../Assets/tablet/bg-pattern-header.svg);
+  }
+  @media (min-width: 1024px) {
+    height: 16.2rem;
+    padding-top: 4.5rem;
+    background-image: url(../../Assets/desktop/bg-pattern-header.svg);
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo-container {
+    display: inline-flex;
+  }
+}

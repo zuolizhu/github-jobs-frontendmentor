@@ -62,3 +62,8 @@ a {
   clip: rect(1px, 1px, 1px, 1px);
   clip-path: inset(0px 0px 99.9% 99.9%);
 }
+
+.App {
+  background-color: var(--bg-app);
+  transition: var(--transition) background-color;
+}

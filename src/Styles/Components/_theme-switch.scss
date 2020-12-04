@@ -1,4 +1,8 @@
 .theme-switch {
+  align-items: center;
   display: inline-flex;
-  background-color: var(--color-violet-61);
+
+  &__icon {
+    display: inline-flex;
+  }
 }

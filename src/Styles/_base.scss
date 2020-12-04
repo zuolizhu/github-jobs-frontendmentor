@@ -7,7 +7,7 @@
   --color-charcoal-14: #19202D;
   --color-gray-51: #6E8098;
   --color-gray-69: #9DAEC2;
-  --color-gray-96: #F4F6F8;
+  --color-gray-97: #F4F6F8;
   
   // Font Weights
   --weight-regular: 400;
@@ -18,10 +18,10 @@
 }
 
 .light {
-
+  --bg-app: var(--color-gray-97);
 }
 
 .dark {
-
+  --bg-app: var(--color-charcoal-10);
 }
 
