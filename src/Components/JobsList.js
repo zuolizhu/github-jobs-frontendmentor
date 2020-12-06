@@ -7,13 +7,12 @@ import { useInfiniteQuery } from 'react-query'
 
 export default function JobsList() {
   const {
-    status,
     data,
     error,
-    isFetching,
-    isFetchingMore,
+    status,
     fetchMore,
     canFetchMore,
+    isFetchingMore,
   } = useInfiniteQuery(
     'jobs',
     async (key, page = 1) => {
@@ -39,7 +38,6 @@ export default function JobsList() {
   
   return (
     <>
-    {isFetching && <p>fetching more</p>}
     <motion.div
       initial="hidden"
       animate="visible"
@@ -58,10 +56,14 @@ export default function JobsList() {
         </React.Fragment>
       ))}
     </motion.div>
-    <button
-      disabled={!canFetchMore || isFetchingMore}
-      onClick={() => fetchMore()}
-    >load more</button>
+    <div className="loadmore-container">
+      
+      <button
+        className="btn btn--loadmore"
+        disabled={!canFetchMore || isFetchingMore}
+        onClick={() => fetchMore()}
+      >{canFetchMore ? 'Load More' : 'No More Jobs'}</button>
+    </div>
     
     </>
   )

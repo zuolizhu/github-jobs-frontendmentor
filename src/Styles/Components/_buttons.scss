@@ -140,4 +140,11 @@
       width: 12.3rem;
     }
   }
+
+  &--loadmore {
+    color: var(--color-white);
+    border-radius: .5rem;
+    padding: 1.6rem 3rem 1.3rem;
+    background-color: var(--color-violet-61);
+  }
 }
