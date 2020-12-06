@@ -34,4 +34,13 @@
       }
     }
   }
+
+  &--applynow {
+    width: 100%;
+    padding-top: 1.6rem;
+    border-radius: .5rem;
+    padding-bottom: 1.3rem;
+    color: var(--color-white);
+    background-color: var(--color-violet-61);
+  }
 }
