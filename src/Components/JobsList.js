@@ -2,20 +2,11 @@ import JobCard from './JobCard'
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useInfiniteQuery } from 'react-query'
+import loadJobs from '../API/loadJobs'
 
 
 
 export default function JobsList() {
-  
-  const [page, setPage] = useState(-1)
-
-  const fetchJobs = async (page) => {
-    const response = await fetch(`https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?page=${page}`)
-    const jobs = await response.json()
-    console.log('fetched data', jobs)
-    return jobs
-  }
- 
   const {
     status,
     data,
@@ -27,16 +18,13 @@ export default function JobsList() {
   } = useInfiniteQuery(
     'jobs',
     async (key, page = 1) => {
-      const data = await fetchJobs(page)
-      // check if data 
-      if (data.length === 50) {
-
-      }
-      console.log(data)
+      const data = await loadJobs(page)
+      console.log('page', page)
+      console.log('data', data)
       return data
     },
     {
-      getFetchMore: page => page
+      getFetchMore: (lastGroup) => lastGroup.nextPage
     }
   )
 
@@ -45,14 +33,12 @@ export default function JobsList() {
     hidden: { opacity: 0 },
   }
 
-
-  const handleLoadMoreClick = () => setPage(old => old + 1)
-
   if (status === 'loading') return <div>Loading data</div>
   if (status === 'error') return <div>{error.message}</div>
   
   return (
     <>
+    {isFetching && <p>fetching more</p>}
     <motion.div
       initial="hidden"
       animate="visible"
@@ -60,16 +46,17 @@ export default function JobsList() {
     >
       {data.map((page, i) => (
         <React.Fragment key={i}>
-          {page.map(job => (
+          {page.data.map(job => (
             <JobCard key={job.id} jobDetail={job} />
           ))}
         </React.Fragment>
       ))}
     </motion.div>
-    <h1>{page}</h1>
     <button
-      onClick={handleLoadMoreClick}
+      disabled={!canFetchMore || isFetchingMore}
+      onClick={() => fetchMore()}
     >load more</button>
+    
     </>
   )
 }
