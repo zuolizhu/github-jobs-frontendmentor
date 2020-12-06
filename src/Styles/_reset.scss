@@ -43,9 +43,16 @@ button {
 
 input {
   padding: 0;
+  width: 100%;
+  border: none;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
   font-family: 'Kumbh Sans', sans-serif;
   &:disabled {
     cursor: wait;
+  }
+  &:focus {
+    outline: none;
   }
 }
 

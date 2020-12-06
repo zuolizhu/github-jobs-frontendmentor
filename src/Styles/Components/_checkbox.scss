@@ -1,0 +1,30 @@
+.input-group--checkbox {
+  align-items: center;
+  display: inline-flex;
+
+  .input-fakebox {
+    opacity: .10;
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: .3rem;
+    background-color: var(--bg-checkbox);
+    transition: var(--transition) background-color, var(--transition) opacity, var(--transition) background-image;
+  }
+  .input-field {
+    display: none;
+  }
+  .input-field:checked + .input-fakebox {
+    opacity: 1;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: var(--color-violet-61);
+    background-image: url(../../Assets/desktop/icon-check.svg);
+  }
+  
+  &:hover {
+    .input-fakebox {
+      opacity: .25;
+      background-color: var(--color-violet-61);
+    }
+  }
+}

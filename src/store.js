@@ -2,23 +2,23 @@ import create from 'zustand'
 
 const useStore = create((set) => ({
   isLight: true,
-  jobs: [],
-  loadedPage: 0,
+  filterTitle: '',
+  filterLocation: '',
   setIsLight: (isLight) =>
     set((state) => ({
       ...state,
       isLight
     })),
-  setJobs: (jobs) =>
+  setFilterTitle: (filterTitle) =>
     set((state) => ({
       ...state,
-      jobs
+      filterTitle,
     })),
-  setLoadedPage: (loadedPage) =>
+  setFilterLocation: (filterLocation) =>
     set((state) => ({
       ...state,
-      loadedPage
-    }))
+      filterLocation,
+    })),
 }))
 
 export default useStore

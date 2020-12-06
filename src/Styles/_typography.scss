@@ -63,3 +63,12 @@
     outline-color: var(--color-white);
   }
 }
+
+.t-checkbox-label {
+  font-size: 1.6rem;
+  line-height: 1.9rem;
+  margin-left: 1.6rem;
+  color: var(--text-color-1);
+  font-weight: var(--weight-bold);
+  transition: var(--transition) color;
+}

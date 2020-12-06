@@ -1,10 +1,9 @@
 import React from 'react'
+import useStore from '../store'
 import JobCard from './JobCard'
+import loadJobs from '../API/loadJobs'
 import { motion } from 'framer-motion'
 import { useInfiniteQuery } from 'react-query'
-import loadJobs from '../API/loadJobs'
-
-
 
 export default function JobsList() {
   const {
@@ -19,14 +18,14 @@ export default function JobsList() {
     'jobs',
     async (key, page = 1) => {
       const data = await loadJobs(page)
-      console.log('page', page)
-      console.log('data', data)
       return data
     },
     {
       getFetchMore: (lastGroup) => lastGroup.nextPage
     }
   )
+
+  const filterTitle = useStore((state) => state.filterTitle)
 
   const variants = {
     visible: { opacity: 1 },
@@ -47,7 +46,9 @@ export default function JobsList() {
     >
       {data.map((page, i) => (
         <React.Fragment key={i}>
-          {page.data.map(job => (
+          {page.data
+            .filter(({ title }) => title.toLowerCase().includes(filterTitle.toLowerCase()))
+            .map(job => (
             <JobCard key={job.id} jobDetail={job} />
           ))}
         </React.Fragment>

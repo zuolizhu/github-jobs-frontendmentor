@@ -22,6 +22,7 @@
   --bg-component: var(--color-white);
   --text-color-1: var(--color-charcoal-14);
   --color-description: var(--color-gray-51);
+  --bg-checkbox: var(--color-charcoal-14);
 }
 
 .dark {
@@ -29,6 +30,7 @@
   --bg-component: var(--color-charcoal-14);
   --text-color-1: var(--color-white);
   --color-description: var(--color-gray-69);
+  --bg-checkbox: var(--color-white);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -37,5 +39,6 @@
     --bg-component: var(--color-charcoal-14);
     --text-color-1: var(--color-white);
     --color-description: var(--color-gray-69);
+    --bg-checkbox: var(--color-white);
   }
 }

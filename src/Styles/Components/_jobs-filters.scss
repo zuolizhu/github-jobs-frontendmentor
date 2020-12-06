@@ -1,0 +1,71 @@
+@import "../Components/checkbox";
+
+.jobs-filters {
+  &-form {
+    border-radius: .6rem;
+    background-color: var(--bg-component);
+    transition: var(--transition) background-color;
+  }
+}
+
+.jobs-filters-form--mobile {
+  display: flex;
+  align-items: center;
+  padding: 1.6rem 1.6rem 1.6rem 2.4rem;
+  @media (min-width: 768px) {
+    display: none;
+  }
+  .input-group {
+    flex: 1;
+    margin-right: 1.2rem;
+    input::placeholder {
+      opacity: .50;
+      color: var(--color-charcoal-10);
+    }
+  }
+}
+
+.jobs-filters-form--mobile__modal {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  display: flex;
+  position: fixed;
+  padding: 0 2.4rem;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, .50);
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+
+  .modal__container {
+    width: 100%;
+    padding: 2.4rem 0;
+    border-radius: .6rem;
+    background-color: var(--bg-component);
+    transition: var(--transition) background-color;
+    .form-control {
+      display: flex;
+      padding: 0 2.4rem;
+    }
+    .input-group--mobile-location {
+      padding: 0 2.4rem 2.4rem;
+      border-bottom: 1px solid rgba(110, 128, 152, .20);
+      input {
+        padding-left: 3.3rem;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-image: url(../../Assets/desktop/icon-location.svg);
+      }
+    }
+
+    .input-group--checkbox {
+      margin: 2.4rem 2.4rem;
+    }
+  }
+}
