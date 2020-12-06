@@ -1,6 +1,9 @@
 .theme-switch {
   align-items: center;
   display: inline-flex;
+  @media (min-width: 1024px) {
+    margin-top: -0.9rem;
+  }
 
   &__icon {
     display: inline-flex;

@@ -1,24 +1,29 @@
 .main--job-detail {
-  
+
   .max-width-container {
-    padding: 0 2.4rem;
-    @media (min-width: 768px) {
-      padding: 0 4rem 0 3.9rem;
-    }
+    margin: 0 auto;
+    max-width: 73rem;
   }
 
   .container {
-    margin: 0 auto;
-    max-width: 73rem;
+    transform: translateY(-4.3rem);
+    padding: 0 2.4rem;
+    @media (min-width: 768px) {
+      padding: 0 4rem 0 3.9rem;
+      transform: translateY(-6rem);
+    }
+    @media (min-width: 1024px) {
+      transform: translateY(-7rem);
+    }
   }
 
 
   .company {
     text-align: center;
     border-radius: .6rem;
+    padding: 0 2.4rem 3.2rem;
     background-color: var(--bg-component);
     transition: var(--transition) background-color;
-    padding: 0 2.4rem 3.2rem;
 
     @media (min-width: 737px) {
       padding: 0;
@@ -52,17 +57,28 @@
     }
 
     &__namesite {
-      margin: 4.2rem 4rem;
+      margin-top: -.1rem;
+      @media (min-width: 737px) {
+        margin: 4.2rem 4rem;
+      }
     }
 
     &__name {
+      margin-bottom: .9rem;
       color: var(--text-color-1);
       transition: var(--transition) color;
+      @media (min-width: 737px) {
+        margin-bottom: .8rem;
+      }
     }
 
     .btn--companysite {
-      margin-left: auto;
-      margin-right: 4rem;
+      margin-top: 2.4rem;
+      @media (min-width: 737px) {
+        margin-top: 0;
+        margin-left: auto;
+        margin-right: 4rem;
+      }
     }
   }
 
@@ -72,6 +88,32 @@
     padding: 4rem 2.4rem 3.2rem;
     background-color: var(--bg-component);
     transition: var(--transition) background-color;
+    @media (min-width: 768px) {
+      padding: 4.8rem;
+    }
+
+    &__heading {
+      display: flex;
+      flex-flow: column nowrap;
+      @media (min-width: 737px) {
+        display: grid;
+        grid-template-columns: 1fr 17rem;
+        & > *:not(.btn--applynow) {
+          grid-column: 1/2;
+        }
+      }
+
+      .btn--applynow {
+        align-self: center;
+        margin-top: 3.2rem;
+        @media (min-width: 737px) {
+          grid-row: 1/4;
+          margin-top: 0;
+          grid-column: 2/3;
+          justify-self: end;
+        }
+      }
+    }
 
     &__timetype {
       display: flex;
@@ -80,6 +122,7 @@
     }
 
     &__title {
+      margin: .8rem 0;
       color: var(--text-color-1);
       transition: var(--transition) color;
     }
@@ -124,6 +167,9 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-image: url(../../Assets/desktop/bg-pattern-detail-footer.svg);
+    @media (min-width: 737px) {
+      padding: 4rem 4.8rem 4.2rem;
+    }
 
     &__heading {
       margin-bottom: 2.4rem;
@@ -137,10 +183,42 @@
     }
   }
 
-  .bottom-title {
-    margin-top: 4rem;
+  .job-info-short {
+    margin-top: -.3rem;
     padding: 2.5rem 2.4rem 2.3rem;
     background-color: var(--bg-component);
+    transition: var(--transition) background-color;
+    @media (min-width: 768px) {
+      padding: 2.3rem 4rem 2.2rem 3.9rem;
+    }
+    
+    &__container {
+      margin: 0 auto;
+      max-width: 73rem;
+      text-align: center;
+      @media (min-width: 737px) {
+        display: flex;
+        text-align: left;
+        align-items: center;
+      }
+      .btn--applynow {
+        @media (min-width: 737px) {
+          margin-left: auto;
+        }
+      }
+    }
+
+    &__titlecompany {
+      display: none;
+      @media (min-width: 737px) {
+        display: flex;
+        margin-right: 2rem;
+        flex-flow: column nowrap;
+      }
+    }
+    &__title {
+      margin-bottom: .8rem;
+    }
   }
 }
 

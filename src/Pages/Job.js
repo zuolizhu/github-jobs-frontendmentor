@@ -4,6 +4,7 @@ import useJob from '../API/useJob'
 import ReactHtmlParser from 'react-html-parser'
 import { useParams, useHistory } from 'react-router-dom'
 import IconBack from '../Assets/desktop/arrow-left-solid.svg'
+import LogoPlaceHolder from '../Assets/desktop/logo-placeholder.svg'
 
 const getDomain = (url) => (new URL(url)).hostname
 
@@ -22,6 +23,8 @@ const transform = (node, index) => {
 const transformHt = (node, index) => {
   if (node.type === 'tag' && node.name === 'a') {
     node.attribs.class = 't-apply-link how-to-apply__link'
+    node.attribs.target = '_blank'
+    node.attribs.rel = 'noreferrer'
   }
   if (node.type === 'tag' && node.name === 'p') {
     node.attribs.class = 't-body how-to-apply__body'
@@ -58,7 +61,7 @@ export default function Job() {
               </button>
               <section className="company">
                 <div className="company__logo">
-                  <img src={data.company_logo} alt="company logo"/>
+                  <img src={data.company_logo || LogoPlaceHolder} alt="company logo"/>
                 </div>
                 <div className="company__namesite">
                   <h2 className="company__name">{data.company}</h2>
@@ -73,7 +76,7 @@ export default function Job() {
                     <div className="spacer-dot"></div>
                     <p className="job-detail__type">{data.type}</p>
                   </div>
-                  <h1 className="job-detail__title">{data.title}</h1>
+                  <h1 className="job-detail__title t-h1">{data.title}</h1>
                   <p className="t-location t-violet">{data.location}</p>
                   <button className="btn btn--applynow" onClick={handleApplyNowClick}>Apply Now</button>
                 </div>
@@ -86,10 +89,14 @@ export default function Job() {
               <div>{isFetching ? "Background Updating..." : " "}</div>
             </div>
             </div>
-          <div className="bottom-title">
-            <h2>{data.title}</h2>
-            <p className="t-light-gray t-body">{data.company}</p>
-            <button className="btn btn--applynow" onClick={handleApplyNowClick}>Apply Now</button>
+          <div className="job-info-short">
+            <div className="job-info-short__container">
+              <div className="job-info-short__titlecompany">
+                <h3 className="t-h3 job-info-short__title">{data.title}</h3>
+                <p className="t-light-gray t-body">{data.company}</p>
+              </div> 
+              <button className="btn btn--applynow" onClick={handleApplyNowClick}>Apply Now</button>
+            </div>
           </div>
         </>
       )}

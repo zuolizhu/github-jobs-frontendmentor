@@ -12,6 +12,9 @@
     display: inline-flex;
     border-radius: 1.2rem;
     background-color: var(--color-white);
+    &:focus {
+      outline-color: var(--color-white);
+    }
 
     &__dot {
       margin: 0;
@@ -37,10 +40,52 @@
 
   &--applynow {
     width: 100%;
+    max-width: 40rem;
     padding-top: 1.6rem;
     border-radius: .5rem;
     padding-bottom: 1.3rem;
     color: var(--color-white);
     background-color: var(--color-violet-61);
+    @media (min-width: 737px) {
+      max-width: 14.1rem;
+    }
+  }
+
+  &--back {
+    align-items: center;
+    display: inline-flex;
+    font-size: 1.6rem;
+    line-height: 2.8rem;
+    color: var(--color-white);
+    transform: translateY(-.6rem);
+
+    &:focus {
+      outline-color: var(--color-white);
+    }
+    &__icon {
+      width: 1.6rem;
+      height: 1.6rem;
+      margin-right: .8rem;
+      margin-bottom: .6rem;
+      transition: var(--transition) margin;
+    }
+
+    &:hover,
+    &:focus {
+      .btn--back__icon {
+        margin-right: .4rem;
+      }
+    }
+  }
+
+  &--companysite {
+    display: inline-flex;
+    border-radius: .5rem;
+    padding: 1.6rem 2rem 1.3rem;
+    color: var(--color-violet-61);
+    background-color: rgba(89, 100, 224, .10);
+    &:focus {
+      outline: var(--outline);
+    }
   }
 }

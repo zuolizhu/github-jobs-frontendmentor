@@ -1,12 +1,13 @@
 import moment from 'moment'
 import { Link } from 'react-router-dom'
+import LogoPlaceHolder from '../Assets/desktop/logo-placeholder.svg'
 
 export default function JobCard({ jobDetail }) {
   
   return (
       <Link className="jobcard" to={`/job/${jobDetail.id}`}>
         <div className="jobcard__logo">
-          <img src={jobDetail.company_logo} alt="company logo"/>
+          <img src={jobDetail.company_logo || LogoPlaceHolder} alt="company logo"/>
         </div>
         <div className="jobcard__timetype t-light-gray t-body">
           <p className="jobcard__time">{moment(new Date(jobDetail.created_at)).fromNow()}</p>
