@@ -16,7 +16,7 @@ export default function ThemeSwitch() {
         aria-label="Theme Switcher"
         onClick={handleThemeSwitchClick}
         className={`btn btn--theme-switch${isLight ? '' : ' dark'}`}>
-          <div className="btn--theme-switch__dot"></div>
+          <span className="btn--theme-switch__dot"></span>
         </button>
       <div className="theme-switch__icon">
         <img src={IconMoon} alt="theme switch icon"/>
