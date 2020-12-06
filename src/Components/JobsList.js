@@ -1,20 +1,44 @@
 import JobCard from './JobCard'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { useQuery } from 'react-query'
+import { useInfiniteQuery } from 'react-query'
 
-const fetchJobs = async (key, page) => {
-  const res = await fetch(`https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?page=${page}`)
-  const jobs = await res.json()
-  return jobs
-}
+
 
 export default function JobsList() {
   
-  const [page, setPage] = useState(1)
-  const { 
-    data, status
-  } = useQuery(['jobs', page], fetchJobs)
+  const [page, setPage] = useState(-1)
+
+  const fetchJobs = async (page) => {
+    const response = await fetch(`https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?page=${page}`)
+    const jobs = await response.json()
+    console.log('fetched data', jobs)
+    return jobs
+  }
+ 
+  const {
+    status,
+    data,
+    error,
+    isFetching,
+    isFetchingMore,
+    fetchMore,
+    canFetchMore,
+  } = useInfiniteQuery(
+    'jobs',
+    async (key, page = 1) => {
+      const data = await fetchJobs(page)
+      // check if data 
+      if (data.length === 50) {
+
+      }
+      console.log(data)
+      return data
+    },
+    {
+      getFetchMore: page => page
+    }
+  )
 
   const variants = {
     visible: { opacity: 1 },
@@ -25,7 +49,7 @@ export default function JobsList() {
   const handleLoadMoreClick = () => setPage(old => old + 1)
 
   if (status === 'loading') return <div>Loading data</div>
-  if (status === 'error') return <div>Error fetching data</div>
+  if (status === 'error') return <div>{error.message}</div>
   
   return (
     <>
@@ -34,8 +58,12 @@ export default function JobsList() {
       animate="visible"
       variants={variants}
     >
-      {data.map((job, index) => (
-        <JobCard key={job.id} id={index} jobDetail={job} />
+      {data.map((page, i) => (
+        <React.Fragment key={i}>
+          {page.map(job => (
+            <JobCard key={job.id} jobDetail={job} />
+          ))}
+        </React.Fragment>
       ))}
     </motion.div>
     <h1>{page}</h1>
