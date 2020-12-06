@@ -23,6 +23,8 @@
   --text-color-1: var(--color-charcoal-14);
   --color-description: var(--color-gray-51);
   --bg-checkbox: var(--color-charcoal-14);
+  --text-color-input: var(--color-charcoal-14);
+  --text-color-input-ph: rgba(25, 32, 45, .50);
 }
 
 .dark {
@@ -31,6 +33,8 @@
   --text-color-1: var(--color-white);
   --color-description: var(--color-gray-69);
   --bg-checkbox: var(--color-white);
+  --text-color-input: var(--color-white);
+  --text-color-input-ph: rgba(255, 255, 255, .50);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -40,5 +44,7 @@
     --text-color-1: var(--color-white);
     --color-description: var(--color-gray-69);
     --bg-checkbox: var(--color-white);
+    --text-color-input: var(--color-white);
+    --text-color-input-ph: rgba(255, 255, 255, .50);
   }
 }

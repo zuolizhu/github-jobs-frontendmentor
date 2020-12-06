@@ -126,4 +126,18 @@
     background-color: var(--color-violet-61);
     background-image: url(../../Assets/desktop/icon-search-white.svg);
   }
+
+  &--search-tablet {
+    width: 8rem;
+    padding-top: 1.6rem;
+    border-radius: .5rem;
+    padding-bottom: 1.3rem;
+    margin-left: auto;
+    min-width: 8rem;
+    color: var(--color-white);
+    background-color: var(--color-violet-61);
+    @media (min-width: 1039px) {
+      width: 12.3rem;
+    }
+  }
 }

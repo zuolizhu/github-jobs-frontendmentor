@@ -3,8 +3,8 @@ import JobsFiltersMobile from './JobsFiltersMobile'
 import JobsFiltersTablet from './JobsFiltersTablet'
 
 export default function JobsFilters() {
-  const [isTablet, setTablet] = useState(window.innerWidth > 768)
-  const updateMedia = () => setTablet(window.innerWidth > 768)
+  const [isTablet, setTablet] = useState(window.innerWidth > 767)
+  const updateMedia = () => setTablet(window.innerWidth > 767)
 
   useEffect(() => {
     window.addEventListener('resize', updateMedia)

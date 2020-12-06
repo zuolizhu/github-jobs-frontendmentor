@@ -26,6 +26,8 @@ export default function JobsList() {
   )
 
   const filterTitle = useStore((state) => state.filterTitle)
+  const filterLocation = useStore((state) => state.filterLocation)
+  const isFulltimeOnly = useStore((state) => state.isFulltimeOnly)
 
   const variants = {
     visible: { opacity: 1 },
@@ -48,6 +50,8 @@ export default function JobsList() {
         <React.Fragment key={i}>
           {page.data
             .filter(({ title }) => title.toLowerCase().includes(filterTitle.toLowerCase()))
+            .filter(({ location }) => location.toLowerCase().includes(filterLocation.toLowerCase()))
+            .filter(({ type }) => type.toLowerCase().includes(isFulltimeOnly.toLowerCase()))
             .map(job => (
             <JobCard key={job.id} jobDetail={job} />
           ))}

@@ -4,6 +4,7 @@ const useStore = create((set) => ({
   isLight: true,
   filterTitle: '',
   filterLocation: '',
+  isFulltimeOnly: '',
   setIsLight: (isLight) =>
     set((state) => ({
       ...state,
@@ -18,6 +19,11 @@ const useStore = create((set) => ({
     set((state) => ({
       ...state,
       filterLocation,
+    })),
+  setSsFulltimeOnly: (isFulltimeOnly) =>
+    set((state) => ({
+      ...state,
+      isFulltimeOnly,
     })),
 }))
 

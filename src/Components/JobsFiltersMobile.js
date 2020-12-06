@@ -1,10 +1,11 @@
-import { useState } from 'react'
 import useStore from '../store'
+import { useState } from 'react'
 import FilterIcon from '../Assets/mobile/icon-filter.svg'
 
 export default function JobsFiltersMobile() {
-  const setFilterTitle = useStore((state) => state.setFilterTitle);
-  const setFilterLocation = useStore((state) => state.setFilterLocation);
+  const setFilterTitle = useStore((state) => state.setFilterTitle)
+  const setFilterLocation = useStore((state) => state.setFilterLocation)
+  const setSsFulltimeOnly = useStore((state) => state.setSsFulltimeOnly)
 
   const [title, setTitle] = useState('')
   const [location, setLocation] = useState('')
@@ -17,7 +18,11 @@ export default function JobsFiltersMobile() {
     event.preventDefault()
     setFilterTitle(title)
     setFilterLocation(location)
-    console.log(isFullTimeOnly)
+    if (isFullTimeOnly) {
+      setSsFulltimeOnly('full time')
+    } else {
+      setSsFulltimeOnly('')
+    }
     if (isActive) {
       handleMoreFiltersClick()
     }
