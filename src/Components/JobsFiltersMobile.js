@@ -41,7 +41,7 @@ export default function JobsFiltersMobile() {
             </div>
             <div className="input-group--checkbox">
               <input className="input-field" type="checkbox" id="filter-by-fulltime" checked={isFullTimeOnly} onChange={(event) => setIsFullTimeOnly(event.target.checked)} />
-              <div className="input-fakebox"></div>
+              <div onClick={() => setIsFullTimeOnly(isFulltime => !isFulltime)} className="input-fakebox"></div>
               <label className="t-checkbox-label input-label" htmlFor="filter-by-fulltime">Full Time Only</label>
             </div>
             <div className="form-control">
