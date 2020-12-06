@@ -1,5 +1,5 @@
+import React from 'react'
 import JobCard from './JobCard'
-import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useInfiniteQuery } from 'react-query'
 import loadJobs from '../API/loadJobs'

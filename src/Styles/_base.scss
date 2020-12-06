@@ -20,19 +20,22 @@
 .light {
   --bg-app: var(--color-gray-97);
   --bg-component: var(--color-white);
-  --h3-color: var(--color-charcoal-14);
+  --text-color-1: var(--color-charcoal-14);
+  --color-description: var(--color-gray-51);
 }
 
 .dark {
   --bg-app: var(--color-charcoal-10);
   --bg-component: var(--color-charcoal-14);
-  --h3-color: var(--color-white);
+  --text-color-1: var(--color-white);
+  --color-description: var(--color-gray-69);
 }
 
 @media (prefers-color-scheme: dark) {
   .dark {
     --bg-app: var(--color-charcoal-10);
     --bg-component: var(--color-charcoal-14);
-    --h3-color: var(--color-white);
+    --text-color-1: var(--color-white);
+    --color-description: var(--color-gray-69);
   }
 }

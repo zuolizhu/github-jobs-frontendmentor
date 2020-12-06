@@ -55,6 +55,11 @@
       margin: 4.2rem 4rem;
     }
 
+    &__name {
+      color: var(--text-color-1);
+      transition: var(--transition) color;
+    }
+
     .btn--companysite {
       margin-left: auto;
       margin-right: 4rem;
@@ -73,6 +78,11 @@
       margin-top: -.1rem;
       align-items: center;
     }
+
+    &__title {
+      color: var(--text-color-1);
+      transition: var(--transition) color;
+    }
   
     .spacer-dot {
       width: .4rem;
@@ -80,6 +90,30 @@
       margin: 0 1.2rem;
       border-radius: 50%;
       background-color: var(--color-gray-51);
+    }
+
+    &__description {
+      margin-top: 3.2rem;
+
+      &__body,
+      &__list {
+        line-height: 2.6rem;
+        color: var(--color-description);
+        transition: var(--transition) color;
+      }
+
+      &__list {
+        padding: 0;
+        margin: 3.2rem 0;
+        padding-left: 2.4rem;
+      }
+      &__body {
+        margin-bottom: 3.2rem;
+      }
+
+      &__list li:not(:last-of-type) {
+        margin-bottom: .8rem;
+      }
     }
   }
 
@@ -90,6 +124,17 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-image: url(../../Assets/desktop/bg-pattern-detail-footer.svg);
+
+    &__heading {
+      margin-bottom: 2.4rem;
+    }
+    &__body {
+      line-height: 2.6rem;
+      color: var(--color-white);
+    }
+    &__link {
+      margin-top: 2.4rem;
+    }
   }
 
   .bottom-title {

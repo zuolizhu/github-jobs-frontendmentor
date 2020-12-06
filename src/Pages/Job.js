@@ -8,16 +8,29 @@ import IconBack from '../Assets/desktop/arrow-left-solid.svg'
 const getDomain = (url) => (new URL(url)).hostname
 
 const transform = (node, index) => {
-  if (node.type === 'tag' && node.name=== 'p') {
-    node.attribs.class = 't-body'
+  if (node.type === 'tag' && node.name === 'strong') {
+    node.attribs.class = 't-h3'
   }
-  if (node.type === 'tag' && node.name=== 'strong') {
-    // node.name = 'h3'
-    // node.attribs.class = 't-h3'
-    // console.log(node)
+  if (node.type === 'tag' && node.name === 'p') {
+    node.attribs.class = 't-body job-detail__description__body'
+  }
+  if (node.type === 'tag' && node.name === 'ul') {
+    node.attribs.class = 't-body job-detail__description__list'
   }
 }
+
+const transformHt = (node, index) => {
+  if (node.type === 'tag' && node.name === 'a') {
+    node.attribs.class = 't-apply-link how-to-apply__link'
+  }
+  if (node.type === 'tag' && node.name === 'p') {
+    node.attribs.class = 't-body how-to-apply__body'
+  }
+}
+
 const parserOption = { transform }
+
+const parserHowToApply = { transform: transformHt }
 
 export default function Job() {
   const { id } = useParams()
@@ -48,7 +61,7 @@ export default function Job() {
                   <img src={data.company_logo} alt="company logo"/>
                 </div>
                 <div className="company__namesite">
-                  <h2>{data.company}</h2>
+                  <h2 className="company__name">{data.company}</h2>
                   <p className="t-light-gray t-body">{getDomain(data.company_url)}</p>
                 </div>
                 <a className="btn btn--companysite" href={data.company_url} rel="noreferrer" target="_blank">Company Site</a>
@@ -67,8 +80,8 @@ export default function Job() {
                 <div className="job-detail__description">{ReactHtmlParser(data.description, parserOption)}</div>
               </section>
               <section ref={howToApplyRef} className="how-to-apply">
-                <h3 className="t-h3">How to apply</h3>
-                {ReactHtmlParser(data.how_to_apply)}
+                <h3 className="t-h3 t-how-to-apply how-to-apply__heading">How to apply</h3>
+                {ReactHtmlParser(data.how_to_apply, parserHowToApply)}
               </section>
               <div>{isFetching ? "Background Updating..." : " "}</div>
             </div>
