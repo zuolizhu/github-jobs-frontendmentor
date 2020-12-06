@@ -65,7 +65,10 @@ export default function Job() {
                   <button className="btn btn--applynow" onClick={handleApplyNowClick}>Apply Now</button>
                 </div>
                 <div className="job-detail__description">{ReactHtmlParser(data.description, parserOption)}</div>
-                <div ref={howToApplyRef} className="job-detail__how-to-apply">{ReactHtmlParser(data.how_to_apply)}</div>
+              </section>
+              <section ref={howToApplyRef} className="how-to-apply">
+                <h3 className="t-h3">How to apply</h3>
+                {ReactHtmlParser(data.how_to_apply)}
               </section>
               <div>{isFetching ? "Background Updating..." : " "}</div>
             </div>
