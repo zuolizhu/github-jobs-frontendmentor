@@ -43,6 +43,7 @@ export default function JobsList() {
       initial="hidden"
       animate="visible"
       variants={variants}
+      className="jobslist"
     >
       {data.map((page, i) => (
         <React.Fragment key={i}>

@@ -20,16 +20,19 @@
 .light {
   --bg-app: var(--color-gray-97);
   --bg-component: var(--color-white);
+  --h3-color: var(--color-charcoal-14);
 }
 
 .dark {
   --bg-app: var(--color-charcoal-10);
-  --bg-component: var(--color-charcoal-14)
+  --bg-component: var(--color-charcoal-14);
+  --h3-color: var(--color-white);
 }
 
 @media (prefers-color-scheme: dark) {
   .dark {
     --bg-app: var(--color-charcoal-10);
-    --bg-component: var(--color-charcoal-14)
+    --bg-component: var(--color-charcoal-14);
+    --h3-color: var(--color-white);
   }
 }

@@ -1,6 +1,14 @@
+@import "../Components/jobcard";
+
 .main--home {
   .container {
     margin: 0 auto;
     max-width: 111rem;
+    padding: 0 2.4rem;
+  }
+  .jobslist {
+    display: grid;
+    row-gap: 4.9rem;
+    margin-top: 5.7rem;
   }
 }

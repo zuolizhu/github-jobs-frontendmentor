@@ -1,0 +1,50 @@
+.jobcard {
+  width: 100%;
+  display: flex;
+  position: relative;
+  border-radius: .6rem;
+  flex-flow: column nowrap;
+  padding: 0 2.1rem 3.2rem 3.2rem;
+  background-color: var(--bg-component);
+  transition: var(--transition) background-color;
+
+  &__logo {
+    width: 5rem;
+    height: 5rem;
+    overflow: hidden;
+    align-items: center;
+    display: inline-flex;
+    border-radius: 1.5rem;
+    justify-content: center;
+    transform: translateY(-50%);
+    background-color: var(--bg-component);
+    transition: var(--transition) background-color;
+    img {
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  &__timetype {
+    display: flex;
+    margin-top: -.1rem;
+    align-items: center;
+  }
+
+  .spacer-dot {
+    width: .4rem;
+    height: .4rem;
+    margin: 0 1.2rem;
+    border-radius: 50%;
+    background-color: var(--color-gray-51);
+  }
+
+  &__title {
+    margin: 1.3rem 0;
+  }
+
+  &__location {
+    margin-top: 2.3rem;
+  }
+}

@@ -5,6 +5,6 @@ const getJobById = async (_, jobId) => {
   return await data.json()
 }
 
-export default function loadJob(id) {
+export default function useJob(id) {
   return useQuery(['job', id], getJobById)
 }

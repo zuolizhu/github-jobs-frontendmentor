@@ -1,4 +1,4 @@
-import loadJob from '../API/loadJob'
+import useJob from '../API/useJob'
 import { useParams, useHistory } from 'react-router-dom'
 
 
@@ -8,7 +8,7 @@ export default function Job() {
   const { id } = useParams()
   const history = useHistory()
   const handleBackClick = () => history.push('/')
-  const { status, data, error, isFetching } = loadJob(id);
+  const { status, data, error, isFetching } = useJob(id);
 
   return (
     <div>
