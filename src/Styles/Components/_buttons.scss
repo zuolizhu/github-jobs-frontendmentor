@@ -45,6 +45,7 @@
     border-radius: .5rem;
     padding-bottom: 1.3rem;
     color: var(--color-white);
+    transition: var(--transition) background-color;
     background-color: var(--color-violet-61);
     @media (min-width: 737px) {
       max-width: 14.1rem;
@@ -136,6 +137,7 @@
     min-width: 8rem;
     color: var(--color-white);
     background-color: var(--color-violet-61);
+    transition: var(--transition) background-color;
     @media (min-width: 1039px) {
       width: 12.3rem;
     }
@@ -146,5 +148,18 @@
     border-radius: .5rem;
     padding: 1.6rem 3rem 1.3rem;
     background-color: var(--color-violet-61);
+    transition: var(--transition) background-color;
   }
+  &--loadmore:disabled {
+    cursor: not-allowed;
+    background-color: var(--color-violet-77);
+  }
+
+
+  &--search-tablet:hover,
+  &--loadmore:hover,
+  &--applynow:hover {
+    background-color: var(--color-violet-77);
+  }
+
 }
